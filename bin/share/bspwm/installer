@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+clone_bspwm_repo() {
+	if [ ! -d "$BSPWM_FOLDER_REPO" ]; then
+		git clone https://github.com/baskerville/bspwm.git $BSPWM_FOLDER_REPO > /dev/null 2>&1
+	fi
+}
+
+clone_sxhkd_repo() {
+	if [ ! -d "$SXHKD_FOLDER_REPO" ]; then
+		git clone https://github.com/baskerville/sxhkd.git $SXHKD_FOLDER_REPO > /dev/null 2>&1
+	fi
+}
+
+install_bspwm_sxhkd(){
+	if ! command_exists bspwm || ! command_exists sxhkd; then
+		echo "installing bspwm and sxhkd"
+		clone_bspwm_repo;
+		clone_sxhkd_repo;
+
+		cd $BSPWM_FOLDER_REPO && make > /dev/null 2>&1 && sudo make install > /dev/null 2>&1
+		cd $SXHKD_FOLDER_REPO && make > /dev/null 2>&1 && sudo make install > /dev/null 2>&1
+	fi
+	
+
+}

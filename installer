@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+source ./enviorments
+
+source $DOTFILES_BIN_SHARE_FOLDER/functions
+source $DOTFILES_BIN_SHARE_BSPWM_FOLDER/installer
+source $DOTFILES_BIN_SHARE_MAKE_FOLDER/installer
+
+
+check_distro(){
+	lsb_release -i | cut -f 2- > /dev/null 2>&1
+}
+
+if check_distro == Ubuntu; then
+	echo "Ubuntu distro"
+	source $DOTFILES_BIN_APT_FOLDER/installer
+else
+	echo "Distro not compatible"
+	exit 1;
+fi
