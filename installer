@@ -9,6 +9,7 @@ source $DOTFILES_BIN_SHARE_BSPWM_FOLDER/installer
 source $DOTFILES_BIN_SHARE_MAKE_FOLDER/installer
 source $DOTFILES_BIN_SHARE_COMPTON_FOLDER/installer
 source $DOTFILES_BIN_SHARE_FEH_FOLDER/installer
+source $DOTFILES_BIN_SHARE_ROFI_FOLDER/installer
 
 check_distro(){
 	lsb_release -i | cut -f 2- > /dev/null 2>&1
@@ -57,5 +58,7 @@ install_bspwm_sxhkd;
 install_compton;
 
 install_feh;
+
+install_rofi;
 
 create_symbolic_links;

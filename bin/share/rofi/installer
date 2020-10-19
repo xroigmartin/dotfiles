@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+install_rofi(){
+    if ! command_exists rofi; then
+        echo "Installing rofi"
+	    install_package rofi;
+    fi
+}
