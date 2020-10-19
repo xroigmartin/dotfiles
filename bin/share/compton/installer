@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+install_compton(){
+    if ! command_exists compton; then
+        echo "Installing compton"
+	    install_package compton;
+    fi
+}
