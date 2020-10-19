@@ -4,19 +4,21 @@ install_package() {
 	sudo apt install -y $1 > /dev/null 2>&1
 }
 
-install_dependencies(){
-	echo "Installing dependencies"
-	sudo apt-get install -y libxcb-xinerama0-dev \
-						    libxcb-icccm4-dev \
-						    libxcb-randr0-dev \
-						    libxcb-util0-dev \
-						    libxcb-ewmh-dev \
-						    libxcb-keysyms1-dev \
-						    libxcb-shape0-dev > /dev/null 2>&1
+check_package_installed(){
+	if ! dpkg -l | grep "$1" > /dev/null; then
+		echo "Installing $1"
+		install_package $1;
+	fi
 }
 
-install_dependencies;
-
-install_make;
-
-install_bspwm_sxhkd;
+install_dependencies(){
+	echo "Installing dependencies"
+	
+	check_package_installed libxcb-xinerama0-dev;
+	check_package_installed libxcb-icccm4-dev;
+	check_package_installed libxcb-randr0-dev;
+	check_package_installed libxcb-util0-dev;
+	check_package_installed libxcb-ewmh-dev;
+	check_package_installed libxcb-keysyms1-dev;
+	check_package_installed libxcb-shape0-dev;
+}
