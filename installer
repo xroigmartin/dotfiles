@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-source ./enviorments
+source $HOME/.dotfiles/enviorments
 
 source $DOTFILES_BIN_SHARE_FOLDER/functions
 source $DOTFILES_BIN_SHARE_BSPWM_FOLDER/installer
@@ -11,6 +11,32 @@ source $DOTFILES_BIN_SHARE_MAKE_FOLDER/installer
 
 check_distro(){
 	lsb_release -i | cut -f 2- > /dev/null 2>&1
+}
+
+create_symbolic_links(){
+	echo "Creating symbolics links"
+	
+	if [[ ! -L "$CONFIG_BSPWM_FOLDER" && -d "$CONFIG_BSPWM_FOLDER" ]]; then
+		echo "Creating bspwm symbolic link"
+		ln -s $BSPWM_CONFIG_FOLDER $CONFIG_FOLDER
+	fi
+
+	if [[ ! -L "$CONFIG_SXHKD_FOLDER" && -d "$CONFIG_SXHKD_FOLDER" ]]; then
+		echo "Creating sxhkd symbolic link"
+		ln -s $SXHKD_CONFIG_FOLER $CONFIG_FOLDER
+	fi
+	
+	if [[ -f "$HOME/.xinitrc" ]]; then
+		if ! cat $HOME/.xinitrc | grep "exec bspwm" > /dev/null; then
+			echo "Add exec bspwm in .xinitrc"
+			cat $DOTFILES_HOME_FOLDER/.xinitrc >> $HOME/.xinitrc
+		fi
+	else
+		if [[ ! -L "$HOME/.xinitrc" ]]; then
+			echo "Creating .xinitrc symbolic link"
+			ln -s DOTFILES_HOME_FOLDER/.xinitrc $HOME
+		fi
+	fi
 }
 
 if check_distro == Ubuntu; then
@@ -26,3 +52,5 @@ install_dependencies;
 install_make;
 
 install_bspwm_sxhkd;
+
+create_symbolic_links;
