@@ -21,6 +21,4 @@ install_bspwm_sxhkd(){
 		cd $BSPWM_FOLDER_REPO && make > /dev/null 2>&1 && sudo make install > /dev/null 2>&1
 		cd $SXHKD_FOLDER_REPO && make > /dev/null 2>&1 && sudo make install > /dev/null 2>&1
 	fi
-	
-
 }
