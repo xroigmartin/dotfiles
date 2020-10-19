@@ -8,6 +8,7 @@ source $DOTFILES_BIN_SHARE_FOLDER/functions
 source $DOTFILES_BIN_SHARE_BSPWM_FOLDER/installer
 source $DOTFILES_BIN_SHARE_MAKE_FOLDER/installer
 source $DOTFILES_BIN_SHARE_COMPTON_FOLDER/installer
+source $DOTFILES_BIN_SHARE_FEH_FOLDER/installer
 
 check_distro(){
 	lsb_release -i | cut -f 2- > /dev/null 2>&1
@@ -54,5 +55,7 @@ install_make;
 install_bspwm_sxhkd;
 
 install_compton;
+
+install_feh;
 
 create_symbolic_links;
