@@ -16,12 +16,12 @@ check_distro(){
 create_symbolic_links(){
 	echo "Creating symbolics links"
 	
-	if [[ ! -L "$CONFIG_BSPWM_FOLDER" && -d "$CONFIG_BSPWM_FOLDER" ]]; then
+	if [[ ! -L "$CONFIG_BSPWM_FOLDER" ]]; then
 		echo "Creating bspwm symbolic link"
 		ln -s $BSPWM_CONFIG_FOLDER $CONFIG_FOLDER
 	fi
 
-	if [[ ! -L "$CONFIG_SXHKD_FOLDER" && -d "$CONFIG_SXHKD_FOLDER" ]]; then
+	if [[ ! -L "$CONFIG_SXHKD_FOLDER" ]]; then
 		echo "Creating sxhkd symbolic link"
 		ln -s $SXHKD_CONFIG_FOLER $CONFIG_FOLDER
 	fi
