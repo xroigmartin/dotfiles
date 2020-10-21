@@ -126,7 +126,7 @@ super + ctrl + {Left,Down,Up,Right}
 
 #Custom move/resize
 alt + ctrl + {Left,Down,Up,Right}
-	/home/xavi/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+	$HOME/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 
 # Google-Chrome
 super + shift + g
