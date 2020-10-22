@@ -3,6 +3,7 @@
 pgrep -x sxhkd > /dev/null || sxhkd &
 compton --config /home/xavi/.config/compton/compton.conf &
 wmname LG3D &
+feh --bg-fill $HOME/.dotfiles/images/forest.jpg &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
