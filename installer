@@ -10,6 +10,7 @@ source $DOTFILES_BIN_SHARE_MAKE_FOLDER/installer
 source $DOTFILES_BIN_SHARE_COMPTON_FOLDER/installer
 source $DOTFILES_BIN_SHARE_FEH_FOLDER/installer
 source $DOTFILES_BIN_SHARE_ROFI_FOLDER/installer
+source $DOTFILES_BIN_SHARE_POLYBAR_FOLDER/installer
 
 check_distro(){
 	lsb_release -i | cut -f 2- > /dev/null 2>&1
@@ -25,12 +26,17 @@ create_symbolic_links(){
 
 	if [[ ! -L "$CONFIG_SXHKD_FOLDER" ]]; then
 		echo "Creating sxhkd folder symbolic link"
-		ln -s $DOTFILES_CONFIG_SXHKD_FOLER $CONFIG_FOLDER
+		ln -s $DOTFILES_CONFIG_SXHKD_FOLDER $CONFIG_FOLDER
 	fi
 
 	if [[ ! -L "$CONFIG_COMPTON_FOLDER" ]]; then
 		echo "Creating compton folder symbolic link"
 		ln -s $DOTFILES_CONFIG_COMPTON_FOLDER $CONFIG_FOLDER
+	fi
+
+	if [[ ! -L "$CONFIG_POLYBAR_FOLDER" ]]; then
+		echo "Creating polybar folder symbolic link"
+		ln -s $DOTFILES_CONFIG_POLYBAR_FOLDER $CONFIG_FOLDER
 	fi
 	
 	if [[ -f "$HOME/.xinitrc" ]]; then
@@ -54,9 +60,9 @@ else
 	exit 1;
 fi
 
-install_dependencies;
-
 install_make;
+
+install_bspwm_dependencies;
 
 install_bspwm_sxhkd;
 
@@ -65,5 +71,7 @@ install_compton;
 install_feh;
 
 install_rofi;
+
+install_polybar;
 
 create_symbolic_links;

@@ -2,6 +2,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 compton --config /home/xavi/.config/compton/compton.conf &
+$HOME/.config/polybar/launch.sh
 wmname LG3D &
 feh --bg-fill $HOME/.dotfiles/images/forest.jpg &
 
