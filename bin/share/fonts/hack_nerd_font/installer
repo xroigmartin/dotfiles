@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+install_hack_nerd_font(){
+    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip;
+    sudo mv Hack.zip /usr/local/share/fonts;
+    cd /usr/local/share/fonts;
+    sudo unzip Hack.zip;
+    sudo rm Hack.zip;
+}
