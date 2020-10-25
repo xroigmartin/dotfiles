@@ -3,3 +3,15 @@
 command_exists(){
 	type "$1" > /dev/null 2>&1
 }
+
+create_simbolick_link(){
+    
+    if [[ -f "$HOME/$1" ]]; then
+        echo "Create backup and delete $1 "
+		cp $HOME/$1 $HOME/$1.bck.$(date +%Y%m%d)
+		rm $HOME/$1
+	fi
+
+    echo "Create symbolic link .zshrc"
+	ln -s $DOTFILES_CONFIG_ZSH_FOLDER/$1 $HOME
+}
