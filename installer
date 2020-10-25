@@ -12,6 +12,7 @@ source $DOTFILES_BIN_SHARE_FEH_FOLDER/installer
 source $DOTFILES_BIN_SHARE_ROFI_FOLDER/installer
 source $DOTFILES_BIN_SHARE_POLYBAR_FOLDER/installer
 source $DOTFILES_BIN_SHARE_FONTS_HACK_NERD_FONT_FOLDER/installer
+source $DOTFILES_BIN_SHARE_ZSH_FOLDER/installer
 
 check_distro(){
 	lsb_release -i | cut -f 2- > /dev/null 2>&1
@@ -76,5 +77,7 @@ install_rofi;
 install_polybar;
 
 install_hack_nerd_font;
+
+install_zsh;
 
 create_symbolic_links;
