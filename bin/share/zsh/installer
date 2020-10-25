@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
+source $DOTFILES_BIN_SHARE_ZSH_POWER_LEVEL_10K/installer
+
 install_zsh(){
     if ! command_exists zsh; then
         echo "Installing zsh"
 	    install_package zsh;
     fi
 
-    create_simbolick_link .zshrc;
+    install_powerlevel10k;
+
+    create_simbolick_link .zshrc $DOTFILES_CONFIG_ZSH_FOLDER;
+    create_simbolick_link .p10k.zsh $DOTFILES_CONFIG_ZSH_POWERLEVEL10K_FOLDER;
+
 }

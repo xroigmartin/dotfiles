@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+clone_powerlevel10k_repo() {
+	if [ ! -d "$POWER_LEVEL_10K_FOLDER_REPO" ]; then
+		git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $POWER_LEVEL_10K_FOLDER_REPO > /dev/null 2>&1
+	fi
+}
+
+install_powerlevel10k(){
+	echo "installing powerlevel10k"
+	clone_powerlevel10k_repo;
+}

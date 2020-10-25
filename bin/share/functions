@@ -12,6 +12,6 @@ create_simbolick_link(){
 		rm $HOME/$1
 	fi
 
-    echo "Create symbolic link .zshrc"
-	ln -s $DOTFILES_CONFIG_ZSH_FOLDER/$1 $HOME
+    echo "Create symbolic link $1"
+	ln -s $2/$1 $HOME
 }
