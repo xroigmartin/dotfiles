@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+export MY_USER=xavi
+
 export CONFIG_FOLDER=$HOME/.config
 export CONFIG_BSPWM_FOLDER=$CONFIG_FOLDER/bspwm
 export CONFIG_SXHKD_FOLDER=$CONFIG_FOLDER/sxhkd

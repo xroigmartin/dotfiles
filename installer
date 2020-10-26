@@ -49,7 +49,7 @@ create_symbolic_links(){
 	else
 		if [[ ! -L "$HOME/.xinitrc" ]]; then
 			echo "Creating .xinitrc symbolic link"
-			ln -s DOTFILES_HOME_FOLDER/.xinitrc $HOME
+			ln -s $DOTFILES_HOME_FOLDER/.xinitrc $HOME
 		fi
 	fi
 }

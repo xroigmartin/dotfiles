@@ -8,9 +8,18 @@ install_zsh(){
 	    install_package zsh;
     fi
 
-    install_powerlevel10k;
+    grep -c -i -w "^xavi.*zsh$" /etc/passwd;
+    
+    if [ $? -eq 0 ]
+    then
+        echo "Configure default zsh shell"
+        sudo usermod -s /usr/bin/zsh $USER
+    fi
 
-    create_simbolick_link .zshrc $DOTFILES_CONFIG_ZSH_FOLDER;
-    create_simbolick_link .p10k.zsh $DOTFILES_CONFIG_ZSH_POWERLEVEL10K_FOLDER;
+    #install_powerlevel10k;
+
+    #create_simbolick_link .zshrc $DOTFILES_CONFIG_ZSH_FOLDER;
+    #create_simbolick_link .p10k.zsh $DOTFILES_CONFIG_ZSH_POWERLEVEL10K_FOLDER;
+
 
 }
