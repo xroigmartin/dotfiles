@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+install_lsd(){
+	if ! command_exists lsd; then
+		echo "installing lsd"
+		wget https://github.com/Peltoche/lsd/releases/download/0.18.0/lsd_0.18.0_amd64.deb
+		sudo dpkg -i lsd_0.18.0_amd64.deb;
+		rm lsd_0.18.0_amd64.deb;
+	fi
+}
