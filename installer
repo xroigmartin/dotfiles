@@ -15,6 +15,7 @@ source $DOTFILES_BIN_SHARE_FONTS_HACK_NERD_FONT_FOLDER/installer
 source $DOTFILES_BIN_SHARE_ZSH_FOLDER/installer
 source $DOTFILES_BIN_SHARE_LSD_FOLDER/installer
 source $DOTFILES_BIN_SHARE_BAT_FOLDER/installer
+source $DOTFILES_BIN_SHARE_FZF_FOLDER/installer
 
 check_distro(){
 	lsb_release -i | cut -f 2- > /dev/null 2>&1
@@ -85,5 +86,7 @@ install_zsh;
 install_lsd;
 
 install_bat;
+
+install_fzf;
 
 create_symbolic_links;
