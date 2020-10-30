@@ -19,4 +19,9 @@ install_zsh(){
     create_simbolick_link .zshrc $DOTFILES_CONFIG_ZSH_FOLDER;
     create_simbolick_link .p10k.zsh $DOTFILES_CONFIG_ZSH_POWERLEVEL10K_FOLDER;
 
+    echo "Install plugin zsh-autosuggestions"
+    install_package zsh-autosuggestions
+    echo "Install plugin zsh-syntax-highlighting"
+    install_package zsh-syntax-highlighting
+
 }
