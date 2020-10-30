@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+install_bat(){
+    if ! command_exists bat; then
+        echo "Installing bat"
+	    install_package bat;
+    fi
+}
