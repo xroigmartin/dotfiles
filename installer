@@ -16,6 +16,8 @@ source $DOTFILES_BIN_SHARE_ZSH_FOLDER/installer
 source $DOTFILES_BIN_SHARE_LSD_FOLDER/installer
 source $DOTFILES_BIN_SHARE_BAT_FOLDER/installer
 source $DOTFILES_BIN_SHARE_FZF_FOLDER/installer
+source $DOTFILES_BIN_SHARE_I3LOCK_FANCY_FOLDER/installer
+source $DOTFILES_BIN_SHARE_IMAGEMAGICK_FOLDER/installer
 
 check_distro(){
 	lsb_release -i | cut -f 2- > /dev/null 2>&1
@@ -88,5 +90,9 @@ install_lsd;
 install_bat;
 
 install_fzf;
+
+install_i3lock_fancy;
+
+install_imagemagick;
 
 create_symbolic_links;

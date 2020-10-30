@@ -131,3 +131,6 @@ alt + ctrl + {Left,Down,Up,Right}
 # Google-Chrome
 super + shift + g
 	google-chrome
+
+super + ctrl + alt + x
+	i3lock-fancy
