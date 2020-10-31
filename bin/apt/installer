@@ -4,6 +4,10 @@ install_package() {
 	sudo apt install -y $1 > /dev/null 2>&1
 }
 
+update_package_repository(){
+	sudo apt update;
+}
+
 check_package_installed(){
 	if ! dpkg -l | grep "$1" > /dev/null; then
 		echo "Installing $1"

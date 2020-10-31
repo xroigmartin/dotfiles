@@ -67,6 +67,8 @@ else
 	exit 1;
 fi
 
+update_package_repository;
+
 install_make;
 
 install_bspwm_dependencies;
