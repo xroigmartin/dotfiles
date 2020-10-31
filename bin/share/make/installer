@@ -4,6 +4,6 @@ install_make(){
     if ! command_exists make; then
         echo "Installing make and build-essential"
 	    install_package make;
-        install_package build-essential
+        install_package build-essential;
     fi
 }
