@@ -69,6 +69,10 @@ fi
 
 update_package_repository;
 
+install_lsd;
+
+install_hack_nerd_font;
+
 install_make;
 
 install_bspwm_dependencies;
@@ -83,11 +87,7 @@ install_rofi;
 
 install_polybar;
 
-install_hack_nerd_font;
-
 install_zsh;
-
-install_lsd;
 
 install_bat;
 
