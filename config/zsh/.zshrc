@@ -11,7 +11,7 @@ fi
 ###########
 # Sources #
 ###########
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -42,6 +42,8 @@ alias ls='lsd --group-dirs=first'
 
 alias cat='/usr/bin/batcat'
 alias catn='/usr/bin/cat'
+
+alias workspaces='cd $HOME/workspaces'
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -85,3 +87,7 @@ function fzf-lovely(){
 	                          cat {}) 2> /dev/null | head -500'
 	fi
 }
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/xroig/.sdkman"
+[[ -s "/home/xroig/.sdkman/bin/sdkman-init.sh" ]] && source "/home/xroig/.sdkman/bin/sdkman-init.sh"
