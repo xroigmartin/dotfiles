@@ -1,12 +1,20 @@
 #! /bin/sh
 
+#run the xrandr command if an external monitor is connected to the laptop.
+#This must be executed before polybar command, so that polybar can set the
+#two separate bars properly
+if [ -x $HOME/.dotfiles/bin/monitors/own_script_bspwm_laptop_dual_monitor]; then
+    own_script_bspwm_laptop_dual_monitor
+fi 
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 compton --config /home/xavi/.config/compton/compton.conf &
 $HOME/.config/polybar/launch.sh &
 wmname LG3D &
 feh --bg-fill $HOME/.dotfiles/images/forest.jpg &
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+bspc monitor eDP-1 -d I II III IV V 
+bspc monitor HDMI-2 -d VI VII VIII IX X
 
 bspc config border_width         2
 bspc config window_gap          12
