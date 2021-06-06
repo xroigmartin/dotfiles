@@ -65,7 +65,7 @@ if check_distro == Ubuntu; then
 else
 	echo "Distro not compatible"
 	exit 1;
-# fi
+fi
 # 
 # update_package_repository;
 # 
