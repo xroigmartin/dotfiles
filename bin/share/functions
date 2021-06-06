@@ -16,19 +16,40 @@ create_simbolick_link(){
 	ln -s $2/$1 $HOME
 }
 
+set_package_manager() {
+	export PACKAKE_MANAGER=$1;
+}
+
+set_distro_name() {
+	export DISTRO_NAME=$1;
+}
+
 check_distro(){
 	output_distro=$(grep '^NAME' /etc/os-release | cut -d "=" -f 2 | cut -d "\"" -f 2)
-    case $output_distro in
+    
+	case $output_distro in
         "Ubuntu")
-            echo "Ubuntu distro"
+			set_package_manager apt
             ;;
         
         "Fedora")
-            echo "Fedora distro"
+			set_package_manager dnf
             ;;
 
         *)
             echo "Distro not compatible"
+			exit 1;
             ;;
     esac
+	
+	set_distro_name $output_distro
+}
+
+install_package() {
+	sudo $PACKAKE_MANAGER install -y $1 > /dev/null 2>&1
+}
+
+update_package_repository(){
+	echo "Update OS"
+	sudo $PACKAKE_MANAGER update > /dev/null 2>&1;
 }
