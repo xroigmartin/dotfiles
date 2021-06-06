@@ -5,7 +5,10 @@ set -euo pipefail
 source ./enviorments;
 
 source $DOTFILES_BIN_SHARE_FOLDER/functions;
+source $DOTFILES_BIN_SHARE_ZSH_FOLDER/installer;
 
 check_distro;
 
 update_package_repository;
+
+install_zsh;

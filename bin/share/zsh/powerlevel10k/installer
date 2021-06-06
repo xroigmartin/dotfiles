@@ -7,6 +7,6 @@ clone_powerlevel10k_repo() {
 }
 
 install_powerlevel10k(){
-	echo "installing powerlevel10k"
+	echo "Installing powerlevel10k"
 	clone_powerlevel10k_repo;
 }
