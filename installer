@@ -1,100 +1,23 @@
 #!/usr/bin/env bash
 
-#set -euo pipefail
-
-# source $HOME/.dotfiles/enviorments
-
-# source $DOTFILES_BIN_SHARE_FOLDER/functions
-# source $DOTFILES_BIN_SHARE_BSPWM_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_MAKE_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_COMPTON_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_FEH_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_ROFI_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_POLYBAR_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_FONTS_HACK_NERD_FONT_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_ZSH_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_LSD_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_BAT_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_FZF_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_I3LOCK_FANCY_FOLDER/installer
-# source $DOTFILES_BIN_SHARE_IMAGEMAGICK_FOLDER/installer
+set -euo pipefail
 
 check_distro(){
-	lsb_release -i | cut -f 2- > /dev/null 2>&1
+	output_distro=$(grep '^NAME' /etc/os-release | cut -d "=" -f 2)
 }
 
-# create_symbolic_links(){
-# 	echo "Creating symbolics links"
+check_distro
 
-# 	if [[ ! -L "$CONFIG_BSPWM_FOLDER" ]]; then
-# 		echo "Creating bspwm folder symbolic link"
-# 		ln -s $DOTFILES_CONFIG_BSPWM_FOLDER $CONFIG_FOLDER
-# 	fi
-
-# 	if [[ ! -L "$CONFIG_SXHKD_FOLDER" ]]; then
-# 		echo "Creating sxhkd folder symbolic link"
-# 		ln -s $DOTFILES_CONFIG_SXHKD_FOLDER $CONFIG_FOLDER
-# 	fi
-
-# 	if [[ ! -L "$CONFIG_COMPTON_FOLDER" ]]; then
-# 		echo "Creating compton folder symbolic link"
-# 		ln -s $DOTFILES_CONFIG_COMPTON_FOLDER $CONFIG_FOLDER
-# 	fi
-
-# 	if [[ ! -L "$CONFIG_POLYBAR_FOLDER" ]]; then
-# 		echo "Creating polybar folder symbolic link"
-# 		ln -s $DOTFILES_CONFIG_POLYBAR_FOLDER $CONFIG_FOLDER
-# 	fi
+case $output_distro in
+	"Ubuntu")
+		echo "Ubuntu distro"
+		;;
 	
-# 	if [[ -f "$HOME/.xinitrc" ]]; then
-# 		if ! cat $HOME/.xinitrc | grep "exec bspwm" > /dev/null; then
-# 			echo "Add exec bspwm in .xinitrc"
-# 			cat $DOTFILES_HOME_FOLDER/.xinitrc >> $HOME/.xinitrc
-# 		fi
-# 	else
-# 		if [[ ! -L "$HOME/.xinitrc" ]]; then
-# 			echo "Creating .xinitrc symbolic link"
-# 			ln -s $DOTFILES_HOME_FOLDER/.xinitrc $HOME
-# 		fi
-# 	fi
-# }
+	"Fedora")
+		echo "Fedora distro"
+		;;
 
-if check_distro == Ubuntu; then
-	echo "Ubuntu distro"
-	# source $DOTFILES_BIN_APT_FOLDER/installer
-else
-	echo "Distro not compatible"
-	exit 1;
-fi
-# 
-# update_package_repository;
-# 
-# install_lsd;
-# 
-# install_hack_nerd_font;
-# 
-# install_make;
-# 
-# install_bspwm_dependencies;
-# 
-# install_bspwm_sxhkd;
-# 
-# install_compton;
-# 
-# install_feh;
-# 
-# install_rofi;
-# 
-# install_polybar;
-# 
-# install_zsh;
-# 
-# install_bat;
-# 
-# install_fzf;
-# 
-# install_i3lock_fancy;
-# 
-# install_imagemagick;
-# 
-# create_symbolic_links;
+	*)
+		echo "Distro not compatible"
+		;;
+esac
