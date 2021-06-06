@@ -29,11 +29,13 @@ check_distro(){
     
 	case $output_distro in
         "Ubuntu")
-			set_package_manager apt
+			set_package_manager apt;
+			set_distro_name $UBUNTU_DISTRO;
             ;;
         
         "Fedora")
-			set_package_manager dnf
+			set_package_manager dnf;
+			set_distro_name $FEDORA_DISTRO;
             ;;
 
         *)
@@ -41,8 +43,6 @@ check_distro(){
 			exit 1;
             ;;
     esac
-	
-	set_distro_name $output_distro
 }
 
 install_package() {
@@ -52,4 +52,15 @@ install_package() {
 update_package_repository(){
 	echo "Update OS"
 	sudo $PACKAKE_MANAGER update > /dev/null 2>&1;
+}
+
+check_font_exists(){
+
+    fc-list -q "$1"
+    if [ $? -eq 0 ]
+    then
+        return 1
+    else
+        return 0
+    fi
 }

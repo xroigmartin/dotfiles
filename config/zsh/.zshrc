@@ -34,14 +34,14 @@ compinit
 #########
 # Alias #
 #########
-alias ll='lsd -lh --group-dirs=first'
-alias la='lsd -a --group-dirs=first'
-alias l='lsd --group-dirs=first'
-alias lla='lsd -lha --group-dirs=first'
-alias ls='lsd --group-dirs=first'
+# alias ll='lsd -lh --group-dirs=first'
+# alias la='lsd -a --group-dirs=first'
+# alias l='lsd --group-dirs=first'
+# alias lla='lsd -lha --group-dirs=first'
+# alias ls='lsd --group-dirs=first'
 
-alias cat='/usr/bin/batcat'
-alias catn='/usr/bin/cat'
+# alias cat='/usr/bin/batcat'
+# alias catn='/usr/bin/cat'
 
 alias workspaces='cd $HOME/workspaces'
 
@@ -53,41 +53,37 @@ alias workspaces='cd $HOME/workspaces'
 # Functions #
 #############
 
-function man() {
-  env \
-  LESS_TERMCAP_mb=$'\e[01;31m' \
-  LESS_TERMCAP_md=$'\e[01;31m' \
-  LESS_TERMCAP_me=$'\e[0m' \
-  LESS_TERMCAP_se=$'\e[0m' \
-  LESS_TERMCAP_so=$'\e[01;44;33m' \
-  LESS_TERMCAP_ue=$'\e[0m' \
-  LESS_TERMCAP_us=$'\e[01;32m' \
-  man "$@"
-}
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# function man() {
+#   env \
+#   LESS_TERMCAP_mb=$'\e[01;31m' \
+#   LESS_TERMCAP_md=$'\e[01;31m' \
+#   LESS_TERMCAP_me=$'\e[0m' \
+#   LESS_TERMCAP_se=$'\e[0m' \
+#   LESS_TERMCAP_so=$'\e[01;44;33m' \
+#   LESS_TERMCAP_ue=$'\e[0m' \
+#   LESS_TERMCAP_us=$'\e[01;32m' \
+#   man "$@"
+# }
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-function fzf-lovely(){
+# function fzf-lovely(){
 
-	if [ "$1" = "h" ]; then
-		fzf -m --reverse --preview-window down:20 --preview '[[ $(file --mime {}) =~ binary ]] &&
- 	                echo {} is a binary file ||
-	                 (bat --style=numbers --color=always {} ||
-	                  highlight -O ansi -l {} ||
-	                  coderay {} ||
-	                  rougify {} ||
-	                  cat {}) 2> /dev/null | head -500'
+# 	if [ "$1" = "h" ]; then
+# 		fzf -m --reverse --preview-window down:20 --preview '[[ $(file --mime {}) =~ binary ]] &&
+#  	                echo {} is a binary file ||
+# 	                 (bat --style=numbers --color=always {} ||
+# 	                  highlight -O ansi -l {} ||
+# 	                  coderay {} ||
+# 	                  rougify {} ||
+# 	                  cat {}) 2> /dev/null | head -500'
 
-	else
-	        fzf -m --preview '[[ $(file --mime {}) =~ binary ]] &&
-	                         echo {} is a binary file ||
-	                         (bat --style=numbers --color=always {} ||
-	                          highlight -O ansi -l {} ||
-	                          coderay {} ||
-	                          rougify {} ||
-	                          cat {}) 2> /dev/null | head -500'
-	fi
-}
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/xroig/.sdkman"
-[[ -s "/home/xroig/.sdkman/bin/sdkman-init.sh" ]] && source "/home/xroig/.sdkman/bin/sdkman-init.sh"
+# 	else
+# 	        fzf -m --preview '[[ $(file --mime {}) =~ binary ]] &&
+# 	                         echo {} is a binary file ||
+# 	                         (bat --style=numbers --color=always {} ||
+# 	                          highlight -O ansi -l {} ||
+# 	                          coderay {} ||
+# 	                          rougify {} ||
+# 	                          cat {}) 2> /dev/null | head -500'
+# 	fi
+# }

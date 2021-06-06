@@ -6,9 +6,12 @@ source ./enviorments;
 
 source $DOTFILES_BIN_SHARE_FOLDER/functions;
 source $DOTFILES_BIN_SHARE_ZSH_FOLDER/installer;
+source $DOTFILES_BIN_SHARE_FONTS_HACK_NERD_FONT_FOLDER/installer;
 
 check_distro;
 
-update_package_repository;
+# update_package_repository;
 
-install_zsh;
+# install_zsh;
+
+install_hack_nerd_font;

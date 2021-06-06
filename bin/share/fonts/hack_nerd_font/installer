@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+install_hack_nerd_font(){
+    if check_font_exists "Hack Nerd Font"; then
+        echo "Installing font Hack Nerd Font"
+        wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip;
+        case $DISTRO_NAME in
+            $UBUNTU_DISTRO)
+                sudo mv Hack.zip /usr/local/share/fonts;
+                cd /usr/local/share/fonts;
+                sudo unzip Hack.zip;
+                sudo rm Hack.zip;
+                ;;
+            
+            $FEDORA_DISTRO)
+                mkdir -p ~/.local/share/fonts/HackNerdFont;
+                mv Hack.zip ~/.local/share/fonts/HackNerdFont;
+                cd ~/.local/share/fonts/HackNerdFont;
+                unzip Hack.zip
+                rm Hack.zip
+                fc-cache -v
+                ;;
+
+            *)
+                ;;
+        esac
+        
+    fi
+}

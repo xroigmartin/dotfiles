@@ -15,3 +15,9 @@ For install need follow this steps:
 `./installer`
 
 ## packages installed
+- zsh: Shell
+- [powerlevel10k][pl10]: Theme for zsh and install my default config, if you want change this use command `p10k configure`
+- [Hack Nerd Font][HackNerdFont]: Default font
+
+[pl10]: https://github.com/romkatv/powerlevel10k
+[HackNerdFont]: https://www.programmingfonts.org/#hack
