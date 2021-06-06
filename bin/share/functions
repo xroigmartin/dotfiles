@@ -15,3 +15,20 @@ create_simbolick_link(){
     echo "Create symbolic link $1"
 	ln -s $2/$1 $HOME
 }
+
+check_distro(){
+	output_distro=$(grep '^NAME' /etc/os-release | cut -d "=" -f 2 | cut -d "\"" -f 2)
+    case $output_distro in
+        "Ubuntu")
+            echo "Ubuntu distro"
+            ;;
+        
+        "Fedora")
+            echo "Fedora distro"
+            ;;
+
+        *)
+            echo "Distro not compatible"
+            ;;
+    esac
+}

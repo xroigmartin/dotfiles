@@ -4,6 +4,6 @@ set -euo pipefail
 
 source ./enviorments
 
-source ./config/check_distro
+source $DOTFILES_BIN_SHARE_FOLDER/functions
 
 check_distro
