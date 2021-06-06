@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-install_i3lock_fancy(){
-    if ! command_exists i3lock-fancy; then
-        echo "Installing i3lock-fancy"
-	    install_package i3lock-fancy;
-    fi
-}

@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-install_feh(){
-    if ! command_exists feh; then
-        echo "Installing feh"
-	    install_package feh;
-    fi
-}
