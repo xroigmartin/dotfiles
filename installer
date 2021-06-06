@@ -2,22 +2,8 @@
 
 set -euo pipefail
 
-check_distro(){
-	output_distro=$(grep '^NAME' /etc/os-release | cut -d "=" -f 2 | cut -d "\"" -f 2)
-}
+source ./enviorments
+
+source ./config/check_distro
 
 check_distro
-
-case $output_distro in
-	"Ubuntu")
-		echo "Ubuntu distro"
-		;;
-	
-	"Fedora")
-		echo "Fedora distro"
-		;;
-
-	*)
-		echo "Distro not compatible"
-		;;
-esac
